@@ -6,6 +6,7 @@ init:
 
 install:
   - git clone https://github.com/i3thuan5/weasel.git
+  - cd weasel
   - git checkout kai_sanphin_mia
 
 build_script:
