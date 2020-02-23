@@ -12,13 +12,14 @@ install:
 build_script:
   - ps: $OutputEncoding
   - ps: $InputEncoding
-  - ps: chcp 65001
+  - ps: chcp
   - ps: $OutputEncoding = New-Object System.Text.UTF8Encoding
   - ps: $InputEncoding = New-Object System.Text.UTF8Encoding
   - ps: chcp 65001
   - ps: $OutputEncoding
   - ps: $InputEncoding
-  - ps: chcp 65001
+  - ps: chcp
+  - ps: ps: Get-ChildItem -File -Recurse | Select-String "意傳台語輸入法"
   - ps: $new_app_name="意傳台語輸入法-白話字漢羅"
   - ps: $env:new_app_name=$new_app_name
   - ps: Get-ChildItem -File -Recurse -Include build.bat,install.nsi,*.h,*.hpp,*.cpp,*.rc,*.vcxproj,*.vcxproj.filters | ForEach {(Get-Content $_ | ForEach {$_ -replace "意傳台語輸入法", $new_app_name}) | Set-Content $_}
